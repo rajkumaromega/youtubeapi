@@ -1,0 +1,4 @@
+<h2>Basic Request</h2>
+<button type="button" (click)="makeRequest()">Make Request</button> //this calls makeRequest in the controller 
+<div *ngIf="loading">loading...</div> //condition if "loading" instance variable  = true it shows loading.. on the page to the user
+<pre>{{data | json }} </pre>   /** data is an object, great way to debug object using json pipe , pre for nyc formatting */

@@ -1,0 +1,22 @@
+1.searchResult object hold the data we want from each result
+2.YouTubeSearchService ;- which will manage the api request to YouTube and convert the result to a stream of searchResult[]
+3.SearchBoxcomponent which will call out to the YouTube services as the user types
+4. SearchResultComponent which will render a specific SearchResult
+5. YouTubeSearchComponent will encapsulate whole YouTube seachhing app and render the list of results
+
+-----excellent repository projects ----------
+  respository:- angular2-webpack-starter
+
+-------------------------------SearchBoxcomponent-----------------------------
+  SearchBoxcomponent will
+  1.watch for keyup on an input and submit a search to the YouTubeSearchService
+  2.emit a loading event when we  are loading (or not)
+  3.emit a results event when wee have new results
+------------------------------calls to SearchBoxcomponent ---------------------
+
+.map call function for each element in array e.target is our input element and value gives that value
+.filter does filter doenst go for the event has value 1
+.debounceTime  make search only after user paused for some given debounceTime 
+do(() => this.loading.emit(true))  now we have debounceTime,enough characters so make loading = true
+      // using do on a steam is a way to perform a function mid-stream for each event 
+.switch() // we saying ignore all search events but the most recent if the new search comes we want to use new search

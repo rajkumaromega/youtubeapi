@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="page-header">
+        <h1>Youtube search</h1>
+        <img style="float: right;" 
+             *ngIf="loading"                     
+             src='assets/images/loading.gif'/>  //only show loading image if loading is true if we ngIf 
+
+    </h1>
+    </div>
+    <div class="row">
+        <div class="input-group input-group-lg col-md-12">
+            <app-search-box
+               (loading)= "loading = $event"   
+               (results)= "updateResults($event)"></app-search-box>
+        </div>   // we use (output) = "action()" syntax here
+                //loading =$event $event will be substituted with the value of event that is emiited from the eventemittor
+                // that eventemittor is from searchboxcomponent
+                //loading $event ll be true wen we call
+    </div>
+
+    <div class="row">
+        <app-search-result
+            *ngFor="let result of results"
+            [result]="result">
+        </app-search-result>
+    </div>
+</div>
+
+
